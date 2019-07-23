@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#Remove build folders
+echo "Remove $PWD/android/build"
+rm -rf $PWD/android/build
+
+echo "Remove $PWD/android/app/build"
+rm -rf $PWD/android/app/build
+
+echo ""
+
+#Run build script
+cd android/
+./gradlew bundleRelease
+cd ../
+
+echo ""
+
+aab_file_path="$PWD/android/app/build/outputs/bundle/release/app.aab"
+
+#Check release apk exists
+if [ -e $aab_file_path ];
+then
+    #Copy apk to root of the project
+    cp -v $aab_file_path $PWD
+else
+    echo "BUNDLE has not been generated"
+    exit 1
+fi
+
+exit 0

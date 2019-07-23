@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#Remove build folders
+echo "Remove $PWD/android/build"
+rm -rf $PWD/android/build
+
+echo "Remove $PWD/android/app/build"
+rm -rf $PWD/android/app/build
+
+echo ""
+
+#Run build script
+cd android/
+./gradlew assembleRelease
+cd ../
+
+echo ""
+
+apk_file_path="$PWD/android/app/build/outputs/apk/release/app-release.apk"
+
+#Check release apk exists
+if [ -e $apk_file_path ];
+then
+    #Copy apk to root of the project
+    cp -v $apk_file_path $PWD
+else
+    echo "APK has not been generated"
+    exit 1
+fi
+
+exit 0

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+adb_path="$HOME/Library/Android/sdk/platform-tools/adb"
+
+aab_file_path="$PWD/android/app/build/outputs/bundle/release/app.aab"
+apks_file_path="$PWD/release_signed.apks"
+
+gradle_properties_file_path="$PWD/android/gradle.properties"
+
+echo ""
+echo "Import gradle.properties"
+echo ""
+
+# Use values from gradle.properties
+. $gradle_properties_file_path
+
+###
+# IDEA:
+# Check MYAPP_RELEASE_STORE_FILE, MYAPP_RELEASE_KEY_ALIAS, MYAPP_RELEASE_STORE_PASSWORD, MYAPP_RELEASE_KEY_PASSWORD exists
+###
+
+keystore_file_path="$PWD/android/app/$MYAPP_RELEASE_STORE_FILE"
+
+echo ""
+echo "Will use $keystore_file_path"
+echo ""
+
+###
+# IDEA:
+# Check when was generated release_signed.apks and compare with app.aab
+# IF app.aab.timestamp > release_signed.apks.timestamp
+# THEN regenerate release_signed.apks
+# FI
+###
+
+echo ""
+echo "bundletool build-apk"
+echo ""
+
+# Build APKs from app.aab file
+bundletool build-apks \
+--bundle=$aab_file_path \
+--output=$apks_file_path \
+--ks=$keystore_file_path \
+--ks-pass=pass:$MYAPP_RELEASE_STORE_PASSWORD \
+--ks-key-alias=$MYAPP_RELEASE_KEY_ALIAS \
+--key-pass=pass:$MYAPP_RELEASE_KEY_PASSWORD
+
+echo ""
+echo "Install on device"
+
+# Install release_signed.apks on connected device
+bundletool install-apks \
+--apks=$apks_file_path \
+--adb $adb_path
+
+echo "Done."
+
+exit 0

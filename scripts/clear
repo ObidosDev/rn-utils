@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#Clear watchman watches
+watchman watch-del-all
+
+#Delete the `node_modules` folder
+rm -rf $PWD/node_modules
+
+#Check what is used for project NPM or YARN by lock file
+if [ -e $PWD/yarn.lock ];
+then
+    node_modules_tool="yarn"
+else
+    node_modules_tool="npm"
+fi
+
+#Install `node_modules`
+$node_modules_tool install
+
+#Install iOS-CocoaPods if needed
+if [ -e $PWD/ios/Podfile ];
+then
+    cd ios
+    pod install
+    cd ..
+fi
+
+#Reset Metro Bundler cache
+rm -rf /tmp/metro-bundler-cache-*
+
+#Remove haste cache
+rm -rf /tmp/haste-map-react-native-packager-*
+
+exit 0

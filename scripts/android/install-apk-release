@@ -1,0 +1,17 @@
+#!/bin/bash
+
+adb_folder_path="$HOME/Library/Android/sdk/platform-tools/"
+
+apk_file_path="$PWD/android/app/build/outputs/apk/release/app-release.apk"
+
+echo ""
+echo "adb install $apk_file_path"
+echo ""
+
+cd $adb_folder_path
+./adb install $apk_file_path
+
+echo ""
+echo "Done."
+
+exit 0
