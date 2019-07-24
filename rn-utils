@@ -22,7 +22,7 @@ case "$1" in
 esac
 
 # Variable with path of script for running
-SCRIPT_PATH=$SCRIPTS_DIR/$PLATFORM/$SCRIPT_NAME
+SCRIPT_PATH=$SCRIPTS_DIR/$PLATFORM/$SCRIPT_NAME/$SCRIPT_NAME
 
 echo ""
 GREEN='\033[1;32m'

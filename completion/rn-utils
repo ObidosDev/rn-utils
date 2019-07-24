@@ -5,11 +5,12 @@
 # COMP_LINE: the current command line
 
 # Path to root scripts directory
-ROOT_DIR=${BASH_SOURCE[0]%/*}
+ROOT_DIR=${BASH_SOURCE[0]%/*/*}
 SCRIPTS_DIR="$ROOT_DIR/scripts"
 
 _rn_utils_completions()
 {
+
     case $COMP_CWORD in
         1)
             # Platform or sript
