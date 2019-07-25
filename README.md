@@ -1,2 +1,2 @@
 # rn-utils
-Bush scripts for React-Native developers
+Bash scripts for React-Native developers
