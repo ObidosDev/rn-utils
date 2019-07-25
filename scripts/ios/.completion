@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Path to root scripts directory
+ROOT_DIR=${BASH_SOURCE[0]%/*}
+
+# Remove alias for ls, redirect any output to /dev/null
+unalias ls 2>/dev/null
+
+# echo $ROOT_DIR
+echo $(ls $ROOT_DIR)
+
+exit 0
