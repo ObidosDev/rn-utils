@@ -17,7 +17,11 @@ else
     # Append line to ~/.bash_profile
     printf "\n$LINE_PATH\n$LINE_FOR_COMPLETION\n" >>$HOME/.bash_profile
     
-    echo "Need to restart the Terminal!"
+    echo;
+    RED='\033[1;31m'
+    NO_COLOR='\033[0m'
+    echo -e "${RED}Need to restart the Terminal!${NO_COLOR}"
+    echo;
 fi
 
 
