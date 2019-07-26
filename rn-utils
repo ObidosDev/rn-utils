@@ -1,7 +1,15 @@
 #!/bin/bash
 
 # Path to root scripts directory
-ROOT_DIR=${BASH_SOURCE[0]%/*}
+SCRIPT_PATH="${BASH_SOURCE[0]%/*}/$(readlink ${BASH_SOURCE[0]})"
+
+# Remove "<dir>/../" from path | home/some/../foo -> home/foo
+re='[^\/]+\/\.\.\/'
+while [[ $SCRIPT_PATH =~ $re ]]; do
+    SCRIPT_PATH="${SCRIPT_PATH/"${BASH_REMATCH[0]}"/}"
+done
+
+ROOT_DIR=${SCRIPT_PATH%/*}
 
 SCRIPTS_DIR="$ROOT_DIR/scripts"
 
