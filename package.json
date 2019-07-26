@@ -1,14 +1,15 @@
 {
-  "name": "test-rn-utils",
-  "version": "0.0.13",
+  "name": "rn-bash-utils",
+  "version": "0.0.2",
   "author": "Vitalii Obideiko <obidosdev@gmail.com> (https://www.linkedin.com/in/obidosdev)",
   "description": "Bash scripts for React-Native developers",
   "main": "rn-utils",
+  "preferGlobal": true,
   "scripts": {
-    "install": "bash ./npm_sripts/install"
+    "postinstall": "bash $PWD/npm_scripts/install"
   },
   "bin": {
-    "test-rn-utils-bin": "./rn-utils"
+    "rn-utils": "./rn-utils"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,10 @@
   },
   "keywords": [
     "bash",
-    "react-native"
+    "react-native",
+    "sh",
+    "shell",
+    "shellscript"
   ],
   "license": "MIT",
   "bugs": {

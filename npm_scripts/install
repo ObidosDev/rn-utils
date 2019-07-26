@@ -4,18 +4,16 @@ cd ${BASH_SOURCE[0]%/*}
 cd ..
 echo $PWD
 
-# Add rn-utils to PATH if need
-if [[ ":$PATH:" == *":$PWD:"* ]]; then
-    echo "PATH is OK"
+COMPLETIONS_FILE_PATH="$PWD/completion/rn-utils"
+LINE_FOR_COMPLETION="[ -f $COMPLETIONS_FILE_PATH ] && . $COMPLETIONS_FILE_PATH"
+
+if grep -q LINE_FOR_COMPLETION "$HOME/.bash_profile"; then
+    echo "$HOME/.bash_profile is OK"
 else
-    echo "Updating PATH in $HOME/.bash_profile"
-    
-    LINE_PATH="export PATH=\"\$PATH:$PWD\""
-    COMPLETIONS_FILE_PATH="$PWD/completion/rn-utils"
-    LINE_FOR_COMPLETION="[ -f $COMPLETIONS_FILE_PATH ] && . $COMPLETIONS_FILE_PATH"
+    echo "Add completion data to $HOME/.bash_profile"
     
     # Append line to ~/.bash_profile
-    printf "\n$LINE_PATH\n$LINE_FOR_COMPLETION\n" >>$HOME/.bash_profile
+    printf "\n$LINE_FOR_COMPLETION\n" >>$HOME/.bash_profile
     
     echo;
     RED='\033[1;31m'
