@@ -3,8 +3,6 @@
 ![](https://img.shields.io/npm/v/rn-bash-utils.svg)
 ![](https://img.shields.io/github/stars/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/forks/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/issues/ObidosDev/rn-utils.svg)
 
-[TOC]
-
 ## Installation
 
 ```shell
