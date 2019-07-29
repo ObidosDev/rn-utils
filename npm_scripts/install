@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+cd ${BASH_SOURCE[0]%/*}
+cd ..
+echo $PWD
+
+COMPLETIONS_FILE_PATH="$PWD/completion/rn-utils"
+LINE_FOR_COMPLETION="[ -f $COMPLETIONS_FILE_PATH ] && . $COMPLETIONS_FILE_PATH"
+
+if grep -q LINE_FOR_COMPLETION "$HOME/.bash_profile"; then
+    echo "$HOME/.bash_profile is OK"
+else
+    echo "Add completion data to $HOME/.bash_profile"
+    
+    # Append line to ~/.bash_profile
+    printf "\n$LINE_FOR_COMPLETION\n" >>$HOME/.bash_profile
+    
+    echo;
+    RED='\033[1;31m'
+    NO_COLOR='\033[0m'
+    echo -e "${RED}Need to restart the Terminal!${NO_COLOR}"
+    echo;
+fi
+
+
+exit 0
