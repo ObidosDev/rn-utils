@@ -25,18 +25,18 @@ case "${#DEVICES_CONNECTED[@]}" in
         SELECTED_DEVICE=${DEVICES_CONNECTED[0]}
     ;;
     *)
-        echo "Select one of devices attached by number (or first one will be used by default)"
         for i in ${!DEVICES_CONNECTED[@]}; do
             echo "$i: ${DEVICES_CONNECTED[$i]}"
         done
-        read DEVICE_INDEX
+        echo
+        read -p "Select one of devices attached by number (or first one will be used by default): " DEVICE_INDEX
         SELECTED_DEVICE=${DEVICES_CONNECTED[$DEVICE_INDEX]}
     ;;
 esac
 
 # Select port
-echo "Enter port (or port=8081 will be used by default)"
-read PORT_NUMBER
+echo
+read -p "Enter port (or port=8081 will be used by default): " PORT_NUMBER
 if [ -z $PORT_NUMBER ]
 then
     PORT_NUMBER="8081"
