@@ -7,7 +7,7 @@ echo $PWD
 COMPLETIONS_FILE_PATH="$PWD/completion/rn-utils"
 LINE_FOR_COMPLETION="[ -f $COMPLETIONS_FILE_PATH ] && . $COMPLETIONS_FILE_PATH"
 
-if grep -q LINE_FOR_COMPLETION "$HOME/.bash_profile"; then
+if grep -q "$LINE_FOR_COMPLETION" "$HOME/.bash_profile"; then
     echo "$HOME/.bash_profile is OK"
 else
     echo "Add completion data to $HOME/.bash_profile"
