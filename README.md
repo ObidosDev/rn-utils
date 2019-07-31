@@ -3,6 +3,20 @@
 ![](https://img.shields.io/npm/v/rn-bash-utils.svg)
 ![](https://img.shields.io/github/stars/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/forks/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/issues/ObidosDev/rn-utils.svg)
 
+###### Table of Contents
+
+- [Installation](#installation)
+- [General scripts](#general-scripts)
+  - [clear](#clear)
+- [iOS](#ios)
+  - [remove-derived-data](#remove-derived-data)
+- [Android](#android)
+  - [reverse](#reverse)
+  - [assemble-release](#assemble-release)
+  - [install-apk-release](#install-apk-release)
+  - [bundle-release](#bundle-release)
+  - [install-bundle-release](#install-bundle-release)
+
 ## Installation
 
 ```shell
@@ -38,19 +52,24 @@ rn-utils clear
 rn-utils ios remove-derived-data
 ```
 
-Remove `Derived data` folder.
+Removing `Derived data` folder.
 
 ---
 
 ## Android
 
-### adb-reverse
+### reverse
 
 ```shell
-rn-utils android adb-reverse
+rn-utils android reverse
 ```
 
-Calls the method `adb reverse` with default ports `tcp:8081 tcp:8081`.
+Calls the method `adb -s <device> reverse tcp:<port> tcp:<port>`. <br/>
+It allow to choose one of devices attached and enter port.
+
+Links:
+
+1. [React Native: Connecting to the development server](https://facebook.github.io/react-native/docs/running-on-device#connecting-to-the-development-server-1)
 
 ---
 
