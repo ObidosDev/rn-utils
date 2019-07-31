@@ -7,7 +7,7 @@
 cd ~/Library/Android/sdk/platform-tools
 
 # Select device if need or can
-selectConnectedAndroidDevice
+selectConnectedAndroidDevice DEVICE_ID
 
 # Select port
 echo
@@ -17,7 +17,8 @@ then
     PORT_NUMBER="8081"
 fi
 
-echo "Run ./adb -s $SELECTED_ANDROID_DEVICE reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER"
-./adb -s $SELECTED_ANDROID_DEVICE reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER
+echo
+echo "Run ./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER"
+./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER
 
 exit 0

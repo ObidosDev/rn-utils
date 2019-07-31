@@ -1,6 +1,13 @@
 #!/bin/bash
 
+###
+# Example:
+# selectConnectedAndroidDevice VARIABLE_NAME
+# Selected device ID ---> VARIABLE_NAME
+###
 function selectConnectedAndroidDevice {
+    local RESULT_VAR=$1
+    
     local PARENT_SCRIPT_DIR=$PWD
     # Go to adb folder
     cd ~/Library/Android/sdk/platform-tools
@@ -38,5 +45,6 @@ function selectConnectedAndroidDevice {
     
     # Go back to parent script folder
     cd $PARENT_SCRIPT_DIR
+    
+    eval $RESULT_VAR="'$SELECTED_ANDROID_DEVICE'"
 }
-

@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Import selectConnectedAndroidDevice function
-. ./android/selectDevice
+. ./android/selectConnectedAndroidDevice
 
 echo "Current folder: $PWD"
 echo
 echo "Call adb device script"
 
-selectConnectedAndroidDevice
+selectConnectedAndroidDevice SELECTED_ANDROID_DEVICE
 
 echo
 echo "Selected device: $SELECTED_ANDROID_DEVICE"
