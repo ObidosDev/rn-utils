@@ -18,6 +18,7 @@
   - [install-bundle-release](#android.install-bundle-release)
 
 <a name="installation"/>
+
 ## Installation
 
 ```shell
@@ -29,9 +30,11 @@ After installation you should relaunch your terminal to enable autocompletion.
 ---
 
 <a name="general-scripts"/>
+
 ## General scripts
 
 <a name="general-scripts.clear"/>
+
 ### clear
 
 ```shell
@@ -48,9 +51,11 @@ rn-utils clear
 ---
 
 <a name="ios"/>
+
 ## iOS
 
 <a name="ios.remove-derived-data"/>
+
 ### remove-derived-data
 
 ```shell
@@ -62,9 +67,11 @@ Remove `Derived data` folder.
 ---
 
 <a name="android"/>
+
 ## Android
 
 <a name="android.reverse"/>
+
 ### reverse
 
 ```shell
@@ -81,6 +88,7 @@ Links:
 ---
 
 <a name="android.assemble-release"/>
+
 ### assemble-release
 
 ```shell
@@ -94,6 +102,7 @@ rn-utils android assemble-release
 ---
 
 <a name="android.install-apk-release"/>
+
 ### install-apk-release
 
 ```shell
@@ -105,6 +114,7 @@ Calls the method `adb install` with file `android/app/build/outputs/apk/release/
 ---
 
 <a name="android.bundle-release"/>
+
 ### bundle-release
 
 ```shell
@@ -118,6 +128,7 @@ rn-utils android bundle-release
 ---
 
 <a name="android.install-bundle-release"/>
+
 ### install-bundle-release
 
 ```shell
