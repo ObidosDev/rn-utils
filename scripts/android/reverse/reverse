@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Import utils functions
-. ../../.utils/android/selectConnectedAndroidDevice
+. ${BASH_SOURCE[0]%/*}/../../.utils/android/selectConnectedAndroidDevice
 
 # Go to adb folder
 cd ~/Library/Android/sdk/platform-tools
