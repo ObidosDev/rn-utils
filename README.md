@@ -52,7 +52,7 @@ rn-utils clear
 rn-utils ios remove-derived-data
 ```
 
-Remove `Derived data` folder.
+Removing `Derived data` folder.
 
 ---
 
