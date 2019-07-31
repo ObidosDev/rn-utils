@@ -3,6 +3,21 @@
 ![](https://img.shields.io/npm/v/rn-bash-utils.svg)
 ![](https://img.shields.io/github/stars/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/forks/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/issues/ObidosDev/rn-utils.svg)
 
+###### Table of Contents
+
+- [Installation](#installation)
+- [General scripts](#general-scripts)
+  - [clear](#general-scripts.clear)
+- [iOS](#ios)
+  - [remove-derived-data](#ios.remove-derived-data)
+- [Android](#android)
+  - [reverse](#android.reverse)
+  - [assemble-release](#android.assemble-release)
+  - [install-apk-release](#android.install-apk-release)
+  - [bundle-release](#android.bundle-release)
+  - [install-bundle-release](#android.install-bundle-release)
+
+<a name="installation"/>
 ## Installation
 
 ```shell
@@ -13,8 +28,10 @@ After installation you should relaunch your terminal to enable autocompletion.
 
 ---
 
+<a name="general-scripts"/>
 ## General scripts
 
+<a name="general-scripts.clear"/>
 ### clear
 
 ```shell
@@ -30,8 +47,10 @@ rn-utils clear
 
 ---
 
+<a name="ios"/>
 ## iOS
 
+<a name="ios.remove-derived-data"/>
 ### remove-derived-data
 
 ```shell
@@ -42,18 +61,26 @@ Remove `Derived data` folder.
 
 ---
 
+<a name="android"/>
 ## Android
 
-### adb-reverse
+<a name="android.reverse"/>
+### reverse
 
 ```shell
-rn-utils android adb-reverse
+rn-utils android reverse
 ```
 
-Calls the method `adb reverse` with default ports `tcp:8081 tcp:8081`.
+Calls the method `adb -s <device> reverse tcp:<port> tcp:<port>`. <br/>
+It allow to choose one of devices attached and enter port.
+
+Links:
+
+1. [React Native: Connecting to the development server](https://facebook.github.io/react-native/docs/running-on-device#connecting-to-the-development-server-1)
 
 ---
 
+<a name="android.assemble-release"/>
 ### assemble-release
 
 ```shell
@@ -66,6 +93,7 @@ rn-utils android assemble-release
 
 ---
 
+<a name="android.install-apk-release"/>
 ### install-apk-release
 
 ```shell
@@ -76,6 +104,7 @@ Calls the method `adb install` with file `android/app/build/outputs/apk/release/
 
 ---
 
+<a name="android.bundle-release"/>
 ### bundle-release
 
 ```shell
@@ -88,6 +117,7 @@ rn-utils android bundle-release
 
 ---
 
+<a name="android.install-bundle-release"/>
 ### install-bundle-release
 
 ```shell
