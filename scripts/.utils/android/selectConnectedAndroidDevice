@@ -28,7 +28,7 @@ function selectConnectedAndroidDevice {
     IFS=$PREV_IFS
     
     # Select device if need or can
-    case "${DEVICES_CONNECTED[@]}" in
+    case "${#DEVICES_CONNECTED[@]}" in
         "0")
             echo "No devices attached"
             exit 0
