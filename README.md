@@ -7,17 +7,15 @@
 
 - [Installation](#installation)
 - [General scripts](#general-scripts)
-  - [clear](#general-scripts.clear)
+  - [clear](#clear)
 - [iOS](#ios)
-  - [remove-derived-data](#ios.remove-derived-data)
+  - [remove-derived-data](#remove-derived-data)
 - [Android](#android)
-  - [reverse](#android.reverse)
-  - [assemble-release](#android.assemble-release)
-  - [install-apk-release](#android.install-apk-release)
-  - [bundle-release](#android.bundle-release)
-  - [install-bundle-release](#android.install-bundle-release)
-
-<a name="installation"/>
+  - [reverse](#reverse)
+  - [assemble-release](#assemble-release)
+  - [install-apk-release](#install-apk-release)
+  - [bundle-release](#bundle-release)
+  - [install-bundle-release](#install-bundle-release)
 
 ## Installation
 
@@ -29,11 +27,7 @@ After installation you should relaunch your terminal to enable autocompletion.
 
 ---
 
-<a name="general-scripts"/>
-
 ## General scripts
-
-<a name="general-scripts.clear"/>
 
 ### clear
 
@@ -50,11 +44,7 @@ rn-utils clear
 
 ---
 
-<a name="ios"/>
-
 ## iOS
-
-<a name="ios.remove-derived-data"/>
 
 ### remove-derived-data
 
@@ -66,11 +56,7 @@ Remove `Derived data` folder.
 
 ---
 
-<a name="android"/>
-
 ## Android
-
-<a name="android.reverse"/>
 
 ### reverse
 
@@ -87,8 +73,6 @@ Links:
 
 ---
 
-<a name="android.assemble-release"/>
-
 ### assemble-release
 
 ```shell
@@ -101,8 +85,6 @@ rn-utils android assemble-release
 
 ---
 
-<a name="android.install-apk-release"/>
-
 ### install-apk-release
 
 ```shell
@@ -112,8 +94,6 @@ rn-utils android install-apk-release
 Calls the method `adb install` with file `android/app/build/outputs/apk/release/app-release.apk` (Generated after `gradlew assembleRelease`).
 
 ---
-
-<a name="android.bundle-release"/>
 
 ### bundle-release
 
@@ -126,8 +106,6 @@ rn-utils android bundle-release
 - Copy bundle (.aab) to root of the project (file `app.aab`).
 
 ---
-
-<a name="android.install-bundle-release"/>
 
 ### install-bundle-release
 
