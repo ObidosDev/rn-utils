@@ -18,7 +18,10 @@ then
 fi
 
 echo
-echo "Run ./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER"
+GREEN='\033[1;32m'
+NO_COLOR='\033[0m'
+echo -e "${GREEN}Run ./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER ${NO_COLOR}"
+
 ./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER
 
 exit 0
