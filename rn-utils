@@ -32,12 +32,6 @@ esac
 # Variable with path of script for running
 SCRIPT_PATH=$SCRIPTS_DIR/$PLATFORM/$SCRIPT_NAME/$SCRIPT_NAME
 
-echo ""
-GREEN='\033[1;32m'
-NO_COLOR='\033[0m'
-echo -e "${GREEN}Run $SCRIPT_PATH${NO_COLOR}"
-echo ""
-
 # Run script
 $SCRIPT_PATH
 

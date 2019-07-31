@@ -1,38 +1,13 @@
 #!/bin/bash
 
+# Import utils functions
+. ../../.utils/android/selectConnectedAndroidDevice
+
 # Go to adb folder
 cd ~/Library/Android/sdk/platform-tools
 
-# Get list of devices attached
-DEVICES_CONNECTED=( $(
-        ./adb devices | while read line
-        do
-            if [[ $line =~ .*device$ ]]; then
-                DEVICE_ID=$(echo $line | { read first _ ; echo $first ; } )
-                echo "$DEVICE_ID"
-            fi
-        done
-    )
-)
-
 # Select device if need or can
-case "${#DEVICES_CONNECTED[@]}" in
-    "0")
-        echo "No devices attached"
-        exit 0
-    ;;
-    "1")
-        SELECTED_DEVICE=${DEVICES_CONNECTED[0]}
-    ;;
-    *)
-        for i in ${!DEVICES_CONNECTED[@]}; do
-            echo "$i: ${DEVICES_CONNECTED[$i]}"
-        done
-        echo
-        read -p "Select one of devices attached by number (or first one will be used by default): " DEVICE_INDEX
-        SELECTED_DEVICE=${DEVICES_CONNECTED[$DEVICE_INDEX]}
-    ;;
-esac
+selectConnectedAndroidDevice DEVICE_ID
 
 # Select port
 echo
@@ -42,7 +17,11 @@ then
     PORT_NUMBER="8081"
 fi
 
-echo "Run ./adb -s $SELECTED_DEVICE reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER"
-./adb -s $SELECTED_DEVICE reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER
+echo
+GREEN='\033[1;32m'
+NO_COLOR='\033[0m'
+echo -e "${GREEN}Run ./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER ${NO_COLOR}"
+
+./adb -s $DEVICE_ID reverse tcp:$PORT_NUMBER tcp:$PORT_NUMBER
 
 exit 0

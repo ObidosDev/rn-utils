@@ -1,0 +1,62 @@
+#!/bin/bash
+
+###
+# Example:
+# selectConnectedAndroidDevice VARIABLE_NAME
+# Selected device ID ---> VARIABLE_NAME
+###
+function selectConnectedAndroidDevice {
+    local RESULT_VAR=$1
+    
+    local PARENT_SCRIPT_DIR=$PWD
+    # Go to adb folder
+    cd ~/Library/Android/sdk/platform-tools
+    
+    # Get list of devices attached
+    local PREV_IFS=$IFS
+    IFS='"'
+    local DEVICES_CONNECTED=( $(
+            ./adb devices -l | while read line
+            do
+                if [[ $line =~ .*transport_id.* ]]; then
+                    printf "${line}"
+                    printf '"'
+                fi
+            done
+        )
+    )
+    IFS=$PREV_IFS
+    
+    # Select device if need or can
+    case "${DEVICES_CONNECTED[@]}" in
+        "0")
+            echo "No devices attached"
+            exit 0
+        ;;
+        "1")
+            SELECTED_ANDROID_DEVICE=$(echo ${DEVICES_CONNECTED[0]} | { read first _ ; echo $first ; } )
+        ;;
+        *)
+            local BOLD_UNDERLINED='\033[1;4m'
+            local GREEN='\033[1;32m'
+            local NO_COLOR='\033[0m'
+            local INVERTED='\033[7m'
+            for i in ${!DEVICES_CONNECTED[@]}; do
+                if [ ${i%2} -eq "0" ]
+                then
+                    echo -e "${BOLD_UNDERLINED}${GREEN}[$i]:${NO_COLOR} ${INVERTED}${DEVICES_CONNECTED[$i]}${NO_COLOR}"
+                else
+                    echo -e "${BOLD_UNDERLINED}${GREEN}[$i]:${NO_COLOR} ${DEVICES_CONNECTED[$i]}"
+                fi
+            done
+            echo
+            read -p "Select one of devices attached by number (or first one will be used by default): " DEVICE_INDEX
+            SELECTED_ANDROID_DEVICE=$(echo ${DEVICES_CONNECTED[$DEVICE_INDEX]} | { read first _ ; echo $first ; } )
+        ;;
+    esac
+    
+    # Go back to parent script folder
+    cd $PARENT_SCRIPT_DIR
+    
+    eval $RESULT_VAR="'$SELECTED_ANDROID_DEVICE'"
+}
