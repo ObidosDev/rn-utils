@@ -1,11 +1,18 @@
 # React native utils
 
-![](https://img.shields.io/npm/v/rn-bash-utils.svg)
-![](https://img.shields.io/github/stars/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/forks/ObidosDev/rn-utils.svg) ![](https://img.shields.io/github/issues/ObidosDev/rn-utils.svg)
+[![](https://img.shields.io/npm/v/rn-bash-utils.svg)](https://www.npmjs.com/package/rn-bash-utils)
+[![](https://img.shields.io/github/stars/ObidosDev/rn-utils.svg)](https://github.com/ObidosDev/rn-utils/stargazers)
+[![](https://img.shields.io/github/forks/ObidosDev/rn-utils.svg)](https://github.com/ObidosDev/rn-utils/network/members)
+[![](https://img.shields.io/github/issues/ObidosDev/rn-utils.svg)](https://github.com/ObidosDev/rn-utils/issues)
+
+This is package with useful bash scripts for React-Native developers.<br/>
+It will eliminate the need of cheatsheet with different scripts for any actions with a project from terminal.<br/>
+Also it will simplify some usual activities with a project.
 
 ###### Table of Contents
 
 - [Installation](#installation)
+- [Usage](#usage)
 - [General scripts](#general-scripts)
   - [clear](#clear)
 - [iOS](#ios)
@@ -26,6 +33,20 @@ npm install -g rn-bash-utils
 After installation you should relaunch your terminal to enable autocompletion.
 
 ---
+
+## Usage
+
+From `ROOT` of the React-Native project you can run all scripts.
+
+```shell
+# Platform specific script
+# <name_of_the_tool> <platform OR name_of_general_script> <name_of_platform_specific_script>
+rn-utils android reverse
+
+# General script
+# <name_of_the_tool> <name_of_general_script>
+rn-utils clear
+```
 
 ## General scripts
 
@@ -120,3 +141,10 @@ It uses values from `gradle.properties` for signing.
 - Install apk on device with `bundletool install-apks`
 
 ---
+
+## Author
+
+Vitalii Obideiko, Mobile developer.<br/>
+[![](https://img.shields.io/static/v1?label=Profile&message=LinkedIn&color=0077b5)](https://www.linkedin.com/in/obidosdev/)<br/>
+[![](https://img.shields.io/static/v1?label=Profile&message=GitHub&color=333)](https://github.com/ObidosDev)<br/>
+[![](https://img.shields.io/static/v1?label=Profile&message=Facebook&color=3C5A99)](https://www.facebook.com/ObidosDev)
