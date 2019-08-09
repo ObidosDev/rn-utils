@@ -1,0 +1,29 @@
+{
+  "keys": {
+    "debug": {
+      "storeFile": "./relative/path/to/key/debug",
+      "storePassword": "1234",
+      "keyAlias": "debug",
+      "keyPassword": "1234"
+    },
+
+    "release": {
+      "storeFile": "./relative/path/to/key/release",
+      "storePassword": "1234",
+      "keyAlias": "release",
+      "keyPassword": "1234"
+    }
+  },
+
+  "flavours": {
+    "main": {
+      "release": "release",
+      "debug": "debug"
+    },
+
+    "stage": {
+      "release": "release",
+      "debug": "debug"
+    }
+  }
+}
