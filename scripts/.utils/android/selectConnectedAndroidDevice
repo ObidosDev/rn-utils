@@ -8,6 +8,8 @@
 function selectConnectedAndroidDevice {
     local RESULT_VAR=$1
     
+    echo ""
+    
     local PARENT_SCRIPT_DIR=$PWD
     # Go to adb folder
     cd ~/Library/Android/sdk/platform-tools

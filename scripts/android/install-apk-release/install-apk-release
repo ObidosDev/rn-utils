@@ -1,15 +1,20 @@
 #!/bin/bash
 
+. ${BASH_SOURCE[0]%/*}/../../.utils/android/selectConnectedAndroidDevice
+
 adb_folder_path="$HOME/Library/Android/sdk/platform-tools/"
 
 apk_file_path="$PWD/android/app/build/outputs/apk/release/app-release.apk"
 
+# Select device if need or can
+selectConnectedAndroidDevice DEVICE_ID
+
 echo ""
-echo "adb install $apk_file_path"
+echo "adb -s $DEVICE_ID install $apk_file_path"
 echo ""
 
 cd $adb_folder_path
-./adb install $apk_file_path
+./adb -s $DEVICE_ID install $apk_file_path
 
 echo ""
 echo "Done."
