@@ -35,4 +35,7 @@ SCRIPT_PATH=$SCRIPTS_DIR/$PLATFORM/$SCRIPT_NAME/$SCRIPT_NAME
 # Run script
 $SCRIPT_PATH
 
+# Check whether updates available for package
+node $ROOT_DIR/utils/checkPackageUpdateAvailable.js
+
 exit 0
